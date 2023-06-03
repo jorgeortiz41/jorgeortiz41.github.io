@@ -1,13 +1,20 @@
 'use client'; // Error components must be Client Components
 
 import Image from 'next/image'
-import {motion} from 'framer-motion'
+import {motion, useScroll, useSpring } from 'framer-motion'
 import { useEffect, useState } from 'react';
+import { LoremIpsum } from "../components/LoremIpsum";
  
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVariant, setCursorVariant] = useState("default");
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -23,8 +30,8 @@ export default function Home() {
 
   const variants = {
     default: {
-      x: mousePosition.x - 24,
-      y: mousePosition.y - 24,
+      x: mousePosition.x - 12,
+      y: mousePosition.y - 12,
       backgroundColor: "white",
       transition: {
         duration: 0.1,
@@ -55,13 +62,54 @@ export default function Home() {
 
   return (
     <>
-      <div class="grid grid-cols-5 gap-4">{/* 5 COLUMN GRID */}
-
-
-      {/* BELOW IS THE FIRST COLUMN */}
-
-          <motion.div
-              initial={{ opacity: 0}}
+      <motion.div class='fixed top-0 left-0 right-0 h-5 bg-blue-900 origin-[0%]' style={{ scaleX }} />
+      <div class="grid grid-cols-5 gap-4">
+      <motion.div
+          initial={{ opacity: 0}}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+        >
+          <motion.button
+           class=" justify-start mt-24 ml-24  ..."
+           initial={{ opacity: 0, x: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ duration: 1 }}
+           whileHover={{ 
+                   x: [-5, 5, -3, 3, -2, 2, 0],
+             transition: {
+               duration: 0.3,
+             },
+            }}
+           >
+            <img src="/jortiz.svg" alt="jortiz logo" />
+          </motion.button>
+        </motion.div>
+      <div class="grid col-span-4 grid-row-4 gap-4">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 40, duration: 4 }}
+        >
+          <div class="row-span-2 text-left w-full mx-0  mt-52 text-4xl text-white font-montserrat font-extrabold tracking-wide ...">
+            <h1 class='bg-[#000A11]' >JORGE ORTIZ - SOFTWARE ENGINEER</h1>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 40, duration: 4, delay: 0.5 }}
+        >
+          <div class=" text-left w-full  text-3xl font-montserra font-light tracking-widest ...">
+            <h3 class='leading-loose text-white/50 mr-20'>passionate about crafting digital experiences that delight,
+             empower. My core values are authenticity, minimalism and independent thinking.
+              I love everything at the intersection of tech, design and philosophy.</h3>
+              <LoremIpsum />
+          </div>
+        </motion.div>
+      </div>
+           <div class="col-span-5">
+           <motion.div
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2 }}
             >
@@ -116,14 +164,13 @@ export default function Home() {
             </div>
       </div>
 
-                {/* BELOW IS THE CURSOR */}
-                
-            <motion.div
-            class='fixed pointer-events-none bg-blue-800 h-12 w-12 rounded-full top-0 left-0' 
-            variants={variants}
-            animate={cursorVariant}
-            >
-            </motion.div>
+      <motion.div
+       class='fixed pointer-events-none bg-blue-800 h-6 w-6 rounded-full top-0 left-0' 
+       variants={variants}
+       animate={cursorVariant}
+       >
+        </motion.div>.
+
     </>
   )
 }
