@@ -62,9 +62,10 @@ export default function Home() {
 
   return (
     <>
+    {/* BELOW IS THE FIRST COLUMN WITH LOGO */}
       <motion.div class='fixed top-0 left-0 right-0 h-5 bg-blue-900 origin-[0%]' style={{ scaleX }} />
       <div class="grid grid-cols-5 gap-4">
-      <motion.div
+        <motion.div
           initial={{ opacity: 0}}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
@@ -84,7 +85,10 @@ export default function Home() {
             <img src="/jortiz.svg" alt="jortiz logo" />
           </motion.button>
         </motion.div>
-      <div class="grid col-span-4 grid-row-4 gap-4">
+
+        {/* BELOW IS THE SECOND COLUMN TITLE AND DESCRIPTION */}
+
+        <div class="grid col-span-4 grid-row-4 gap-4">
         <motion.div
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -107,52 +111,9 @@ export default function Home() {
           </div>
         </motion.div>
       </div>
-           <div class="col-span-5">
-           <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2 }}
-            >
-              <motion.button
-              class=" justify-start mt-24 ml-24  ..."
-              initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-              whileHover={{ 
-                      x: [-5, 5, -3, 3, -2, 2, 0],
-                transition: {
-                  duration: 0.3,
-                },
-                }}
-              >
-                <img src="/jortiz.svg" alt="jortiz logo" />
-              </motion.button>
-            </motion.div>
+      
+      {/* BELOW IS SVG BLUE WAVES*/}
 
-      {/* BELOW IS THE SECOND COLUMN */}
-
-            <div class="grid col-span-4 grid-row-4 gap-4">{/* 4 ROW GRID IN 4 COLUMNS */}
-              <motion.div
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ type: "spring", stiffness: 40, duration: 4 }}
-              >
-                <div class="row-span-2 text-left w-full mx-0  mt-52 text-4xl text-white font-montserrat font-extrabold tracking-wide ...">
-                  <h1 onMouseEnter={textEnter} onMouseLeave={textLeave} class='bg-[#000A11]' >JORGE ORTIZ - SOFTWARE ENGINEER</h1>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ type: "spring", stiffness: 40, duration: 4, delay: 0.5 }}
-              >
-                <div class=" text-left w-full  text-3xl font-montserra font-light tracking-widest ...">
-                  <h3 class='leading-loose text-white/50 mr-20'>passionate about crafting digital experiences that delight,
-                  empower. My core values are authenticity, minimalism and independent thinking.
-                    I love everything at the intersection of tech, design and philosophy.</h3>
-                </div>
-              </motion.div>
-            </div>
             <div class="col-span-5">
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -164,12 +125,14 @@ export default function Home() {
             </div>
       </div>
 
+      {/*CURSOR ELEMENT*/}
+
       <motion.div
        class='fixed pointer-events-none bg-blue-800 h-6 w-6 rounded-full top-0 left-0' 
        variants={variants}
        animate={cursorVariant}
        >
-        </motion.div>.
+      </motion.div>.
 
     </>
   )
