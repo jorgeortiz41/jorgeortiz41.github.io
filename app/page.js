@@ -63,8 +63,11 @@ export default function Home() {
 
   return (
     <>
-    {/* BELOW IS THE FIRST COLUMN WITH LOGO */}
+      {/* BELOW IS THE SCROLL ANIMATION */}
       <motion.div class='fixed top-0 left-0 right-0 h-5 bg-blue-900 origin-[0%]' style={{ scaleX }} />
+
+
+      {/* BELOW IS THE FIRST COLUMN WITH THE LOGO */}
       <div class="grid grid-cols-5 gap-4">
         <motion.div
           initial={{ opacity: 0}}
