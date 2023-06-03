@@ -75,7 +75,7 @@ export default function Home() {
           transition={{ duration: 2 }}
         >
           <motion.button
-           class=" justify-start mt-24 ml-24  ..."
+           class="fixed justify-start mt-24 ml-24 h-10 w-32 ..."
            initial={{ opacity: 0, x: 0 }}
            animate={{ opacity: 1 }}
            transition={{ duration: 1 }}
