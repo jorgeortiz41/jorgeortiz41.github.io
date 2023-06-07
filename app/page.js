@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <>
       {/* BELOW IS THE SCROLL ANIMATION */}
-      <motion.div class='fixed top-0 left-0 right-0 h-5 bg-blue-900 origin-[0%]' style={{ scaleX }} />
+      <motion.div class='fixed top-0 left-0 right-0 z-40 h-5 bg-blue-900 origin-[0%]' style={{ scaleX }} />
 
 
       {/* BELOW IS THE FIRST COLUMN WITH THE LOGO */}
@@ -82,7 +82,7 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <motion.button
-           class="fixed justify-start mt-24 ml-24 h-10 w-32 ..."
+           class="fixed justify-start mt-24 ml-16 h-10 w-32 ..."
            initial={{ opacity: 0, x: 0 }}
            animate={{ opacity: 1 }}
            transition={{ duration: 1 }}
@@ -131,9 +131,7 @@ export default function Home() {
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 See my work 
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" class="w-6 h-6 m-0">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-                </svg>
+
               </motion.div>
               <motion.div
                 class="h-10 w-60 rounded-lg z-40 border-2 border-blue-500 ..."
@@ -141,7 +139,7 @@ export default function Home() {
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                GitHub<svg class="h-6 w-6 stroke-blue-500 m-0 stroke-2 fill-blue-500"  viewBox="0 0 24 24">  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+                GitHub
               </motion.div>
             </div>
 
